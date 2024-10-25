@@ -1,0 +1,91 @@
+{
+  "usuario": [
+    {
+      "id": "2",
+      "nombre": "Daniela",
+      "email": "daniela@example.com",
+      "edad": 27,
+      "clave": "d1234"
+    },
+    {
+      "id": "4",
+      "nombre": "Yolanda",
+      "edad": "56",
+      "email": "yolanda@gmail.com",
+      "clave": "y1234"
+    },
+    {
+      "id": "5",
+      "nombre": "Nelson",
+      "edad": "15",
+      "email": "nelsoncheddar@gmail.com",
+      "clave": "n1234"
+    },
+    {
+      "id": "6",
+      "nombre": "The Last Emperor",
+      "edad": "2000",
+      "email": "thelastemperor@gmail.com",
+      "clave": "t1234"
+    },
+    {
+      "id": "7",
+      "nombre": "wgrei",
+      "edad": "sthjk",
+      "email": "wertyuk",
+      "clave": "w1234"
+    }
+  ],
+  "trabajos": [
+    {
+      "id": "1",
+      "nombre": "Trabajo 1"
+    },
+    {
+      "id": "2",
+      "nombre": "Trabajo 2"
+    },
+    {
+      "id": "3",
+      "nombre": "Trabajo 3"
+    }
+  ],
+  "fichajes": [
+    {
+      "id": "1",
+      "FechaHoraEntrada": "2023-10-01T08:00:00",
+      "FechaHoraSalida": "2023-10-01T16:00:00",
+      "horasTrabajadas": "8",
+      "idTrabajo": 2,
+      "geolocalizacionLatitud": 40.712776,
+      "geolocalizacionLongitud": -74.005974
+    },
+    {
+      "id": "2",
+      "FechaHoraEntrada": "2023-10-02T09:00:00",
+      "FechaHoraSalida": "2023-10-02T17:00:00",
+      "horasTrabajadas": "8",
+      "idTrabajo": 3,
+      "geolocalizacionLatitud": 34.052235,
+      "geolocalizacionLongitud": -118.243683
+    },
+    {
+      "id": "3",
+      "FechaHoraEntrada": "2023-10-03T07:30:00",
+      "FechaHoraSalida": "2023-10-03T15:30:00",
+      "horasTrabajadas": "8",
+      "idTrabajo": 4,
+      "geolocalizacionLatitud": 51.507351,
+      "geolocalizacionLongitud": -0.127758
+    },
+    {
+      "id": "bc76",
+      "idTrabajo": "Trabajo 3",
+      "FechaHoraEntrada": "2024-10-25T19:55:06.045Z",
+      "FechaHoraSalida": "2024-10-25T19:55:19.590Z",
+      "horasTrabajadas": 0.0037625,
+      "geolocalizacionLatitud": 38.43026254845818,
+      "geolocalizacionLongitud": -0.4008623215356777
+    }
+  ]
+}

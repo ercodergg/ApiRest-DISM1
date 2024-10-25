@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Fichaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="home-content">
+  <div *ngIf="!fichajeAbierto" class="form-container">
+    <div class="button-container">
+    <ion-item>
+      <ion-label>Seleccionar Trabajo</ion-label>
+      <ion-select [(ngModel)]="trabajoSeleccionado" interface="popover" class="small-select">
+        <ion-select-option *ngFor="let trabajo of trabajos" [value]="trabajo">
+          {{ trabajo }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button (click)="iniciarFichaje()" class="rounded-button small-button">Iniciar Fichaje</ion-button>
+    </div>
+  </div>
+  
+  <div *ngIf="fichajeAbierto" class="form-container">
+    <ion-text>Tienes un fichaje abierto. Puedes finalizarlo.</ion-text>
+    <div class="button-container">
+      <ion-button (click)="finalizarFichaje()" class="rounded-button small-button">Finalizar Fichaje</ion-button>
+    </div>
+  </div>
+</ion-content>

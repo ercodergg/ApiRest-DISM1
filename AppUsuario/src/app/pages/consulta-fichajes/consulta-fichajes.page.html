@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Consulta de Fichajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="fichajes.length > 0; else noData">
+    <ion-item *ngFor="let fichaje of fichajes">
+      <ion-label>
+        <h2>Trabajo ID: {{ fichaje.idTrabajo }}</h2>
+        <p>Entrada: {{ fichaje.FechaHoraEntrada | date: 'short' }}</p>
+        <p>Salida: {{ fichaje.FechaHoraSalida | date: 'short' }}</p>
+        <p>Horas Trabajadas: {{ fichaje.horasTrabajadas }}</p>
+        <p>Ubicación: Latitud {{ fichaje.geolocalizacionLatitud }}, Longitud {{ fichaje.geolocalizacionLongitud }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ng-template #noData>
+    <p>No hay fichajes para mostrar.</p>
+  </ng-template>
+</ion-content>

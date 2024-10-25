@@ -1,0 +1,107 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+/* global.scss */
+/* global.scss */
+
+/* Estilo para el contenedor principal del contenido */
+.home-content, .content-container {
+    display: flex;
+    justify-content: center; // Centra horizontalmente
+    align-items: center; // Centra verticalmente
+    flex-direction: column; // Organiza los elementos en columna
+    padding: 1em; // Espacio interno
+  }
+  
+  /* Estilo para los formularios */
+  .form-container {
+    display: flex; // Usa flexbox para alinear los formularios
+    justify-content: center; // Centra los formularios horizontalmente
+    flex-direction: column; // Organiza los elementos en columna
+    padding: 2em; // Espaciado interno del formulario
+    width: auto; // Ancho automático para el contenedor del formulario
+  }
+  
+  /* Estilo para los botones y su contenedor */
+  .button-container {
+    display: flex; // Usa flexbox para alinear los botones
+    justify-content: center; // Centra los botones horizontalmente
+    gap: 60px; // Espacio entre botones
+    margin: 1em; // Margen externo
+    width: auto; // Auto ancho para que no ocupen todo el espacio
+  }
+  .button-container ion-label{
+    margin: 1em; // Margen externo
+  }
+  /* Estilo para los botones redondeados */
+  .rounded-button {
+    --border-radius: 25px; // Hace que los botones sean redondeados
+    --background: #000000; // Color de fondo del botón
+    --color: white; // Color del texto del botón
+    font-weight: bold; // Texto en negrita
+    font-size: 16px; // Tamaño del texto
+    transition: 0.3s ease; // Transición suave al pasar el ratón
+  
+    &:hover {
+      --background: #002f80; // Color de fondo al pasar el ratón
+    }
+  
+    &:active {
+      --background: #002f80; // Color de fondo al presionar el botón
+    }
+  }
+  
+  /* Estilo para los textos */
+  ion-text {
+    margin-bottom: 20px; // Espaciado debajo del texto
+    font-size: 18px; // Tamaño del texto
+    font-weight: 600; // Peso del texto
+    color: #333; // Color del texto
+    text-align: center; // Alinear el texto al centro
+  }
+  
+  /* Estilo para los items */
+  ion-item {
+    margin-bottom: 15px; // Espaciado entre los items
+  }
+  
+  /* Estilo para el select pequeño */
+  .small-select {
+    width: auto; // Ancho automático para el select
+    max-width: 200px; // Máximo ancho del select
+  }
+  
