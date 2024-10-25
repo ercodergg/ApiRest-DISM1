@@ -1,0 +1,338 @@
+openapi: 3.0.3
+info:
+  title: Práctica 1 DISM AppUsuarios y AppAdmin
+  description: |-
+    Sistema de control de presencia para gestionar fichajes de trabajadores:
+    - **AppAdmin**: Gestión de usuarios, trabajos y fichajes. - **AppUsuarios**: Registro y consulta de fichajes asociados a trabajos.
+  contact:
+    email: egg125@alu.ua.es
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+  description: Servidor API Rest
+tags:
+- name: Usuario
+  description: Operaciones accesibles por los usuarios para fichajes y consultas.
+- name: Admin
+  description: "Operaciones de administración de usuarios, trabajos y fichajes."
+paths:
+  /admin/usuarios:
+    get:
+      tags:
+      - Admin
+      summary: Obtener todos los usuarios
+      operationId: adminUsuariosGET
+      responses:
+        "200":
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+                x-content-type: application/json
+      x-swagger-router-controller: AdminController
+    post:
+      tags:
+      - Admin
+      summary: Crear un nuevo usuario
+      operationId: adminUsuariosPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      responses:
+        "201":
+          description: Usuario creado
+      x-swagger-router-controller: AdminController
+  /admin/usuarios/{id}:
+    get:
+      tags:
+      - Admin
+      summary: Obtener un usuario por ID
+      operationId: adminUsuariosIdGET
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        "404":
+          description: Usuario no encontrado
+      x-swagger-router-controller: AdminController
+    put:
+      tags:
+      - Admin
+      summary: Actualizar un usuario
+      operationId: adminUsuariosIdPUT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      responses:
+        "200":
+          description: Usuario actualizado
+      x-swagger-router-controller: AdminController
+    delete:
+      tags:
+      - Admin
+      summary: Eliminar un usuario
+      operationId: adminUsuariosIdDELETE
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Usuario eliminado
+      x-swagger-router-controller: AdminController
+  /admin/trabajos:
+    get:
+      tags:
+      - Admin
+      summary: Obtener todos los trabajos
+      operationId: adminTrabajosGET
+      responses:
+        "200":
+          description: Lista de trabajos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trabajo'
+                x-content-type: application/json
+      x-swagger-router-controller: AdminController
+    post:
+      tags:
+      - Admin
+      summary: Crear un nuevo trabajo
+      operationId: adminTrabajosPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trabajo'
+        required: true
+      responses:
+        "201":
+          description: Trabajo creado
+      x-swagger-router-controller: AdminController
+  /admin/trabajos/{id}:
+    put:
+      tags:
+      - Admin
+      summary: Actualizar un trabajo
+      operationId: adminTrabajosIdPUT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trabajo'
+        required: true
+      responses:
+        "200":
+          description: Trabajo actualizado
+      x-swagger-router-controller: AdminController
+    delete:
+      tags:
+      - Admin
+      summary: Eliminar un trabajo
+      operationId: adminTrabajosIdDELETE
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Trabajo eliminado
+      x-swagger-router-controller: AdminController
+  /admin/fichajes/filtrar:
+    get:
+      tags:
+      - Admin
+      summary: Filtrar fichajes por usuario y rango de fechas
+      operationId: adminFichajesFiltrarGET
+      parameters:
+      - name: usuarioId
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      - name: fechaInicio
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date
+      - name: fechaFin
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: date
+      responses:
+        "200":
+          description: Lista de fichajes filtrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Fichaje'
+                x-content-type: application/json
+      x-swagger-router-controller: AdminController
+  /usuarios/fichajes:
+    get:
+      tags:
+      - Usuario
+      summary: Obtener fichajes del día
+      operationId: usuarioFichajesGET
+      responses:
+        "200":
+          description: Lista de fichajes del día (últimas 24 horas)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Fichaje'
+                x-content-type: application/json
+      x-swagger-router-controller: UsuarioController
+    post:
+      tags:
+      - Usuario
+      summary: Registrar nuevo fichaje
+      operationId: usuarioFichajesPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Fichaje'
+        required: true
+      responses:
+        "201":
+          description: Fichaje registrado
+      x-swagger-router-controller: UsuarioController
+  /usuarios/fichajes/{id}:
+    put:
+      tags:
+      - Usuario
+      summary: Finalizar un fichaje en menos de 12 horas
+      operationId: usuarioFichajesIdPUT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Fichaje'
+        required: true
+      responses:
+        "200":
+          description: Fichaje finalizado
+      x-swagger-router-controller: UsuarioController
+components:
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+        apellidos:
+          type: string
+        clave:
+          type: string
+      example:
+        id: 1
+        nombre: Juan
+        apellidos: Pérez
+        clave: 1234
+    Fichaje:
+      type: object
+      properties:
+        id:
+          type: integer
+        fechaHoraEntrada:
+          type: string
+          format: date-time
+        fechaHoraSalida:
+          type: string
+          format: date-time
+        trabajo:
+          $ref: '#/components/schemas/Trabajo'
+        geolocalizacion:
+          type: string
+      example:
+        id: 1
+        fechaHoraEntrada: 2024-10-16T08:00:00Z
+        fechaHoraSalida: 2024-10-16T17:00:00Z
+        trabajo:
+          id: 1
+          nombre: Desarrollo Backend
+        geolocalizacion: "40.416775,-3.703790"
+    Trabajo:
+      type: object
+      properties:
+        id:
+          type: integer
+        nombre:
+          type: string
+      example:
+        id: 1
+        nombre: Desarrollo Backend

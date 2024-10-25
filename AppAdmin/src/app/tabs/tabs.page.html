@@ -1,0 +1,21 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">  <!-- Coloca los tabs en la parte inferior -->
+    <ion-tab-button tab="home" href="/tabs/home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Gestionar Usuarios</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="gestionar-trabajos" href="/tabs/gestionar-trabajos">
+      <ion-icon name="briefcase-outline"></ion-icon>
+      <ion-label>Gestionar Trabajos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="gestionar-fichajes" href="/tabs/gestionar-fichajes">
+      <ion-icon name="time-outline"></ion-icon>
+      <ion-label>Gestionar Fichajes</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+  <!-- Aquí se renderizan las páginas de los tabs -->
+  <ion-router-outlet></ion-router-outlet>
+</ion-tabs>

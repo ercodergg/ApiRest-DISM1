@@ -1,0 +1,34 @@
+{
+  "usuario": [
+    {
+      "id": 2,
+      "nombre": "Daniela",
+      "email": "daniela@example.com",
+      "edad": 27
+    },
+    {
+      "id": 4,
+      "nombre": "Yolanda",
+      "edad": "56",
+      "email": "yolanda@gmail.com"
+    },
+    {
+      "id": 5,
+      "nombre": "Nelson ",
+      "edad": "15",
+      "email": "nelsoncheddar@gmail.com"
+    },
+    {
+      "id": 6,
+      "nombre": "The Last Emperor",
+      "edad": "2000",
+      "email": "thelastemperor@gmail.com"
+    },
+    {
+      "id": 7,
+      "nombre": "wgrei",
+      "edad": "sthjk",
+      "email": "wertyuk"
+    }
+  ]
+}

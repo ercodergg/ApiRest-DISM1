@@ -1,0 +1,20 @@
+{
+  "name": "pr-ctica-1-dism-appusuarios-y-appadmin",
+  "version": "1.0.0",
+  "description": "Sistema de control de presencia para gestionar fichajes de trabajadores: - **AppAdmin**: Gestión de usuarios, trabajos y fichajes. - **AppUsuarios**: Registro y consulta de fichajes asociados a trabajos.",
+  "main": "index.js",
+  "scripts": {
+	"prestart": "npm install",
+	"start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "oas3-tools": "^2.2.3"
+  }
+}
